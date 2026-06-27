@@ -1,216 +1,249 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ほぐし施術マッチング</title>
-    <style>
-        /* 全体のデザイン */
-        body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f8f5;
-            color: #333333;
-            line-height: 1.6;
-        }
-
-        /* ヘッダー（上の部分） */
-        header {
-            background-color: #2e7d32;
-            color: #ffffff;
-            text-align: center;
-            padding: 30px 15px;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        header p {
-            margin: 10px 0 0 0;
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        /* 全体の入れ物 */
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px 15px;
-        }
-
-        /* 説明文の箱 */
-        .intro-box {
-            background-color: #ffffff;
-            border-left: 5px solid #4caf50;
-            padding: 15px;
-            border-radius: 4px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .intro-box p {
-            margin: 0;
-            font-size: 14px;
-        }
-
-        /* コース（商品）のカード */
-        .course-card {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .course-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #2e7d32;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-        .course-price {
-            font-size: 22px;
-            font-weight: bold;
-            color: #d32f2f;
-            margin-bottom: 15px;
-        }
-        
-        /* 申し込みボタン */
-        .btn-order {
-            display: inline-block;
-            width: 100%;
-            max-width: 280px;
-            padding: 12px 0;
-            background-color: #4caf50;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 25px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-            transition: background-color 0.2s;
-        }
-        .btn-order:hover {
-            background-color: #388e3c;
-        }
-
-        /* ご利用の流れ */
-        .section-title {
-            font-size: 18px;
-            color: #2e7d32;
-            border-bottom: 2px solid #2e7d32;
-            padding-bottom: 5px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        .flow-list {
-            padding-left: 0;
-            list-style: none;
-        }
-        .flow-list li {
-            background-color: #ffffff;
-            padding: 10px 15px;
-            margin-bottom: 8px;
-            border-radius: 4px;
-            font-size: 14px;
-            border-left: 3px solid #81c784;
-        }
-
-        /* 施術者向け案内と注意書き */
-        .info-box {
-            background-color: #e8f5e9;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 25px;
-            font-size: 13px;
-        }
-        .info-box h3 {
-            margin-top: 0;
-            color: #2e7d32;
-            font-size: 14px;
-        }
-
-        .caution-box {
-            font-size: 12px;
-            color: #666666;
-            margin-top: 20px;
-            padding: 10px;
-        }
-
-        /* フッター（一番下） */
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
-            color: #888888;
-            margin-top: 30px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ほぐし施術マッチング｜全国対応</title>
+  <style>
+    :root{
+      --green:#2e7d32; --green2:#4caf50; --green3:#0f766e;
+      --bg:#f4f8f5; --card:#ffffff; --text:#263238;
+      --muted:#667085; --red:#c43d3d; --dark:#1f2937;
+      --line:#dfe8df; --yellow:#fff8e1; --blue:#eef7ff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+      line-height:1.75;
+    }
+    header{
+      background:linear-gradient(135deg,var(--green),var(--green2));
+      color:#fff; text-align:center; padding:40px 16px 34px;
+    }
+    header h1{margin:0;font-size:30px;font-weight:900;letter-spacing:.03em}
+    header p{margin:12px auto 0;max-width:760px;font-size:15px;opacity:.96}
+    nav{
+      position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line);
+      display:flex;gap:8px;overflow-x:auto;padding:10px 12px;-webkit-overflow-scrolling:touch;
+    }
+    nav a{
+      flex:0 0 auto;color:var(--green);text-decoration:none;font-weight:800;font-size:14px;
+      border:1px solid #b7ddb9;background:#f8fff8;padding:8px 12px;border-radius:999px;
+    }
+    main{max-width:820px;margin:0 auto;padding:22px 15px 46px}
+    section,.card{
+      background:var(--card);border-radius:14px;padding:20px;margin-bottom:22px;
+      box-shadow:0 3px 12px rgba(0,0,0,.06);
+    }
+    .intro{border-left:7px solid var(--green2)}
+    h2{margin:0 0 16px;color:var(--green);font-size:22px;line-height:1.35;border-bottom:2px solid #c8e6c9;padding-bottom:9px}
+    h3{margin:0 0 10px;color:var(--green);font-size:18px}
+    p{margin:0 0 12px}
+    .badges{margin-top:10px}
+    .badge{display:inline-block;margin:4px 4px 0 0;padding:4px 10px;border-radius:999px;background:#e8f5e9;border:1px solid #a5d6a7;color:var(--green);font-size:13px;font-weight:800}
+    .course{text-align:center;border:1px solid #e0e7e0;margin-bottom:16px}
+    .course-title{color:var(--green);font-size:23px;font-weight:900}
+    .price{color:var(--red);font-size:30px;font-weight:900;margin:10px 0 8px}
+    .small{font-size:13px;color:var(--muted)}
+    .btn{
+      display:inline-block;width:100%;max-width:360px;padding:14px 12px;border:none;border-radius:999px;
+      background:var(--green2);color:#fff;text-align:center;text-decoration:none;font-weight:900;font-size:16px;
+      box-shadow:0 4px 10px rgba(0,0,0,.13);cursor:pointer;
+    }
+    .btn-dark{max-width:none;border-radius:10px;background:var(--dark);margin-top:16px}
+    .btn-mail{max-width:none;border-radius:10px;background:var(--green3);margin-top:12px}
+    label{display:block;margin:14px 0 6px;font-weight:900}
+    input,select,textarea{width:100%;padding:13px 12px;border:1px solid #cfd8dc;border-radius:9px;font-size:16px;background:#fff}
+    textarea{min-height:116px;resize:vertical}
+    .result{display:none;margin-top:14px;padding:14px;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:9px;white-space:pre-wrap;word-break:break-word;font-size:14px}
+    .flow{list-style:none;padding:0;margin:0}
+    .flow li{margin-bottom:9px;padding:12px 14px;background:#fff;border:1px solid #eef4ee;border-left:5px solid #81c784;border-radius:8px}
+    .ai-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:15px;margin-top:12px}
+    .admin{background:var(--blue);border-left:6px solid #0284c7}
+    .notice{background:var(--yellow);border-left:6px solid #ffb300;font-size:14px}
+    .admin-list{margin:0;padding-left:20px}
+    footer{text-align:center;color:#777;padding:26px 12px;font-size:12px}
+  </style>
 </head>
 <body>
-
-    <header>
-        <h1>ほぐし施術マッチング</h1>
-        <p>全国対応｜ご希望の地域・日時に合わせて施術者とのマッチングをサポート</p>
-    </header>
-
-    <div class="container">
-
-        <div class="intro-box">
-            <p>ご希望の地域・日時・施術時間を選び、BASEで安全にお支払いできます。決済完了後、受付内容を確認し、条件に合う施術者とのマッチングを進めます。</p>
-        </div>
-
-        <div class="course-card">
-            <div class="course-title">60分コース</div>
-            <div class="course-price">6,000円（税込）</div>
-            <a href="https://karadacare.base.ec/items/148661827" class="btn-order" target="_blank">BASEで申し込む</a>
-        </div>
-
-        <div class="course-card">
-            <div class="course-title">90分コース</div>
-            <div class="course-price">9,000円（税込）</div>
-            <a href="https://karadacare.base.ec/items/148661905" class="btn-order" target="_blank">BASEで申し込む</a>
-        </div>
-
-        <div class="course-card">
-            <div class="course-title">120分コース</div>
-            <div class="course-price">12,000円（税込）</div>
-            <a href="https://karadacare.base.ec/items/148661975" class="btn-order" target="_blank">BASEで申し込む</a>
-        </div>
-
-        <div class="section-title">ご利用の流れ</div>
-        <ul class="flow-list">
-            <li>① コースを選択</li>
-            <li>② BASEで決済</li>
-            <li>③ 受付内容を確認</li>
-            <li>④ 条件に合う施術者とのマッチングを進行</li>
-            <li>⑤ 日時・地域などを確認して連絡</li>
-        </ul>
-
-        <div class="info-box">
-            <h3>施術者向け案内</h3>
-            <p style="margin:0;">掲載希望、AI受付導入、ホームページ作成支援などをご希望の方もお問い合わせください。</p>
-        </div>
-
-        <div class="caution-box">
-            <p style="margin:0;">本サービスは、施術希望者と施術者をつなぐマッチングサービスです。地域・日時・施術者の状況により、ご希望に添えない場合があります。決済はBASEの安全な決済画面で行われます。</p>
-        </div>
-
+<header>
+  <h1>ほぐし施術マッチング</h1>
+  <p>全国対応｜ご希望の地域・日時に合わせて施術者とのマッチングをサポート</p>
+</header>
+<nav>
+  <a href="#course">コース</a>
+  <a href="#customer">お客様申込</a>
+  <a href="#therapist">施術者登録</a>
+  <a href="#ai">AI受付</a>
+  <a href="#admin">管理画面</a>
+  <a href="#flow">流れ</a>
+</nav>
+<main>
+  <section class="intro">
+    <p>ご希望の地域・日時・施術時間を選び、BASEで安全にお支払いできます。決済完了後、受付内容を確認し、条件に合う施術者とのマッチングを進めます。</p>
+    <div class="badges">
+      <span class="badge">BASE決済対応</span>
+      <span class="badge">お客様申込フォーム</span>
+      <span class="badge">施術者登録フォーム</span>
+      <span class="badge">AI受付</span>
+      <span class="badge">受付メール作成</span>
     </div>
-
-    <footer>
-        &copy; ほぐし施術マッチング All Rights Reserved.
-    </footer>
-
+  </section>
+  <section id="course">
+    <h2>コースを選んでお申し込み</h2>
+    <div class="card course">
+      <div class="course-title">60分コース</div>
+      <div class="price">6,000円（税込）</div>
+      <p class="small">短時間で利用しやすい基本コースです。</p>
+      <a class="btn" href="https://karadacare.base.ec/items/148661827" target="_blank" rel="noopener">BASEで申し込む</a>
+    </div>
+    <div class="card course">
+      <div class="course-title">90分コース</div>
+      <div class="price">9,000円（税込）</div>
+      <p class="small">ゆっくり全体的に希望される方向けの標準コースです。</p>
+      <a class="btn" href="https://karadacare.base.ec/items/148661905" target="_blank" rel="noopener">BASEで申し込む</a>
+    </div>
+    <div class="card course">
+      <div class="course-title">120分コース</div>
+      <div class="price">12,000円（税込）</div>
+      <p class="small">時間をかけてしっかり希望される方向けのコースです。</p>
+      <a class="btn" href="https://karadacare.base.ec/items/148661975" target="_blank" rel="noopener">BASEで申し込む</a>
+    </div>
+  </section>
+  <section id="customer">
+    <h2>お客様申込フォーム</h2>
+    <p class="small">BASE決済後、こちらの内容をもとに受付確認を行います。</p>
+    <form id="customerForm">
+      <label>お名前</label><input name="name" required placeholder="例：山田 太郎">
+      <label>メールアドレス</label><input name="email" type="email" required placeholder="例：sample@example.com">
+      <label>電話番号</label><input name="phone" required placeholder="例：090-0000-0000">
+      <label>ご希望コース</label>
+      <select name="course" required>
+        <option value="">選択してください</option>
+        <option>60分コース</option><option>90分コース</option><option>120分コース</option>
+      </select>
+      <label>ご希望地域</label><input name="area" required placeholder="例：大阪市北区、尼崎市、神戸市など">
+      <label>ご希望日時</label><input name="date" required placeholder="例：7月5日 午後、平日夜、土日など">
+      <label>ご希望内容・ご相談</label><textarea name="message" placeholder="例：肩・腰を中心に希望、女性施術者希望、訪問希望など"></textarea>
+      <button type="submit" class="btn btn-dark">受付内容を作成する</button>
+    </form>
+    <div id="customerResult" class="result"></div>
+  </section>
+  <section id="therapist">
+    <h2>施術者登録フォーム</h2>
+    <p class="small">掲載希望・提携希望の施術者様はこちらから登録内容を作成できます。</p>
+    <form id="therapistForm">
+      <label>お名前・屋号</label><input name="name" required placeholder="例：からだケアサポート">
+      <label>対応地域</label><input name="area" required placeholder="例：大阪府、兵庫県、東京都など">
+      <label>対応可能な施術時間</label><input name="time" placeholder="例：60分・90分・120分">
+      <label>連絡先メール</label><input name="email" type="email" required placeholder="例：sample@example.com">
+      <label>自己紹介・対応内容</label><textarea name="profile" placeholder="対応可能な内容、曜日、訪問可否、自己紹介など"></textarea>
+      <button type="submit" class="btn btn-dark">登録内容を作成する</button>
+    </form>
+    <div id="therapistResult" class="result"></div>
+  </section>
+  <section id="ai">
+    <h2>AIマッチング受付</h2>
+    <p>現在は、入力内容から「確認すべきポイント」を自動整理する受付補助版です。次の段階で、Googleスプレッドシート保存・自動メール・本格AI判定へ接続します。</p>
+    <div class="ai-box">
+      <h3>AI受付で確認する内容</h3>
+      <p>地域、希望日時、コース、連絡先、希望条件、施術者の対応可能地域を確認します。</p>
+      <button class="btn btn-dark" onclick="showAiMessage()">AI受付内容を確認する</button>
+      <div id="aiResult" class="result"></div>
+    </div>
+  </section>
+  <section id="admin" class="admin">
+    <h2>管理画面 第1版</h2>
+    <p>この第1版では、以下の管理項目を確認する準備欄を入れています。</p>
+    <ul class="admin-list">
+      <li>お客様申込内容</li>
+      <li>施術者登録内容</li>
+      <li>BASE決済確認</li>
+      <li>マッチング進行状況</li>
+      <li>次回追加予定：Googleスプレッドシート保存</li>
+    </ul>
+  </section>
+  <section id="flow">
+    <h2>ご利用の流れ</h2>
+    <ul class="flow">
+      <li>① コースを選択</li>
+      <li>② BASEで決済</li>
+      <li>③ お客様申込フォームを入力</li>
+      <li>④ 受付内容を確認</li>
+      <li>⑤ 条件に合う施術者とのマッチングを進行</li>
+      <li>⑥ 日時・地域などを確認してご連絡</li>
+    </ul>
+  </section>
+  <section class="notice">
+    本サービスは、施術希望者と施術者をつなぐマッチングサービスです。
+    地域・日時・施術者の状況により、ご希望に添えない場合があります。
+    決済はBASEの安全な決済画面で行われます。
+  </section>
+</main>
+<footer>&copy; ほぐし施術マッチング All Rights Reserved.</footer>
+<script>
+  const ADMIN_EMAIL = "miracle.tada@gmail.com";
+  function formToObject(form){
+    const data = new FormData(form);
+    const obj = {};
+    for(const [key,value] of data.entries()){ obj[key] = value; }
+    return obj;
+  }
+  function buildMailLink(subject, body){
+    return "mailto:" + ADMIN_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  }
+  document.getElementById("customerForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const d = formToObject(this);
+    const body =
+`【お客様申込】
+お名前：${d.name}
+メール：${d.email}
+電話：${d.phone}
+希望コース：${d.course}
+希望地域：${d.area}
+希望日時：${d.date}
+相談内容：${d.message || "未入力"}
+【受付メモ】
+地域・日時・コースを確認し、対応可能な施術者候補を確認してください。
+決済状況はBASE管理画面で確認してください。`;
+    const r = document.getElementById("customerResult");
+    r.style.display = "block";
+    r.innerHTML = "受付内容を作成しました。下のボタンからメール送信してください。\\n\\n" + body +
+      "\\n\\n<a class='btn btn-mail' href='" + buildMailLink("ほぐし施術マッチング お客様申込", body) + "'>この内容をメールで送る</a>";
+  });
+  document.getElementById("therapistForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const d = formToObject(this);
+    const body =
+`【施術者登録】
+お名前・屋号：${d.name}
+対応地域：${d.area}
+対応時間：${d.time || "未入力"}
+メール：${d.email}
+自己紹介・対応内容：${d.profile || "未入力"}
+【受付メモ】
+対応地域・時間・内容を確認し、施術者候補として登録してください。`;
+    const r = document.getElementById("therapistResult");
+    r.style.display = "block";
+    r.innerHTML = "登録内容を作成しました。下のボタンからメール送信してください。\\n\\n" + body +
+      "\\n\\n<a class='btn btn-mail' href='" + buildMailLink("ほぐし施術マッチング 施術者登録", body) + "'>この内容をメールで送る</a>";
+  });
+  function showAiMessage(){
+    const r = document.getElementById("aiResult");
+    r.style.display = "block";
+    r.textContent =
+`AI受付確認項目
+1. お客様の希望地域を確認
+2. 希望日時を確認
+3. 希望コースを確認
+4. 連絡先を確認
+5. 施術者の対応地域と照合
+6. 条件が合えばマッチング候補として管理
+次の段階で、Googleスプレッドシート保存と自動メール送信へ接続できます。`;
+  }
+</script>
 </body>
 </html>
-
-
-    
-
-
-
-
-
