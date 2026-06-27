@@ -1,365 +1,214 @@
 <!DOCTYPE html>
-
 <html lang="ja">
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>ほぐし施術マッチング｜全国版AI集客支援</title>
-
-  <style>
-
-    body {
-
-      margin: 0;
-
-      font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
-
-      background: #f3fbf6;
-
-      color: #1f3d2b;
-
-      line-height: 1.8;
-
-    }
-
-    header {
-
-      background: linear-gradient(135deg, #2f8f5b, #7bd89f);
-
-      color: white;
-
-      text-align: center;
-
-      padding: 45px 20px;
-
-    }
-
-    header h1 {
-
-      font-size: 30px;
-
-      margin: 0 0 12px;
-
-    }
-
-    header p {
-
-      font-size: 17px;
-
-      margin: 0;
-
-    }
-
-    section {
-
-      max-width: 950px;
-
-      margin: 24px auto;
-
-      padding: 24px;
-
-      background: white;
-
-      border-radius: 18px;
-
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-
-    }
-
-    h2 {
-
-      color: #227344;
-
-      border-left: 7px solid #53c47a;
-
-      padding-left: 12px;
-
-    }
-
-    .grid {
-
-      display: grid;
-
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-
-      gap: 18px;
-
-    }
-
-    .card {
-
-      border: 2px solid #d8f1df;
-
-      border-radius: 16px;
-
-      padding: 20px;
-
-      background: #fbfffc;
-
-    }
-
-    .price {
-
-      font-size: 24px;
-
-      font-weight: bold;
-
-      color: #1f8b4c;
-
-    }
-
-    .btn {
-
-      display: block;
-
-      text-align: center;
-
-      background: #2f8f5b;
-
-      color: white;
-
-      padding: 14px;
-
-      border-radius: 12px;
-
-      text-decoration: none;
-
-      font-weight: bold;
-
-      margin-top: 14px;
-
-    }
-
-    .btn:hover {
-
-      background: #246f47;
-
-    }
-
-    .notice {
-
-      background: #fff8e8;
-
-      border: 2px solid #f1d28a;
-
-      border-radius: 14px;
-
-      padding: 18px;
-
-    }
-
-    footer {
-
-      text-align: center;
-
-      padding: 28px;
-
-      background: #1f3d2b;
-
-      color: white;
-
-      font-size: 14px;
-
-    }
-
-  </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ほぐし施術マッチング</title>
+    <style>
+        /* 全体のデザイン */
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f8f5;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* ヘッダー（上の部分） */
+        header {
+            background-color: #2e7d32;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 15px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* 全体の入れ物 */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        /* 説明文の箱 */
+        .intro-box {
+            background-color: #ffffff;
+            border-left: 5px solid #4caf50;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .intro-box p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* コース（商品）のカード */
+        .course-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .course-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .course-price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #d32f2f;
+            margin-bottom: 15px;
+        }
+        
+        /* 申し込みボタン */
+        .btn-order {
+            display: inline-block;
+            width: 100%;
+            max-width: 280px;
+            padding: 12px 0;
+            background-color: #4caf50;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.2s;
+        }
+        .btn-order:hover {
+            background-color: #388e3c;
+        }
+
+        /* ご利用の流れ */
+        .section-title {
+            font-size: 18px;
+            color: #2e7d32;
+            border-bottom: 2px solid #2e7d32;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .flow-list {
+            padding-left: 0;
+            list-style: none;
+        }
+        .flow-list li {
+            background-color: #ffffff;
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            border-left: 3px solid #81c784;
+        }
+
+        /* 施術者向け案内と注意書き */
+        .info-box {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 25px;
+            font-size: 13px;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #2e7d32;
+            font-size: 14px;
+        }
+
+        .caution-box {
+            font-size: 12px;
+            color: #666666;
+            margin-top: 20px;
+            padding: 10px;
+        }
+
+        /* フッター（一番下） */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #888888;
+            margin-top: 30px;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
+    <header>
+        <h1>ほぐし施術マッチング</h1>
+        <p>全国対応｜ご希望の地域・日時に合わせて施術者とのマッチングをサポート</p>
+    </header>
 
-  <h1>🌿 ほぐし施術マッチング</h1>
+    <div class="container">
 
-  <p>全国の施術者・事業者を応援するAI集客支援プラットフォーム</p>
+        <div class="intro-box">
+            <p>ご希望の地域・日時・施術時間を選び、BASEで安全にお支払いできます。決済完了後、受付内容を確認し、条件に合う施術者とのマッチングを進めます。</p>
+        </div>
 
-</header>
+        <div class="course-card">
+            <div class="course-title">60分コース</div>
+            <div class="course-price">6,000円（税込）</div>
+            <a href="https://karadacare.base.ec/items/148661827" class="btn-order" target="_blank">BASEで申し込む</a>
+        </div>
 
-<section>
+        <div class="course-card">
+            <div class="course-title">90分コース</div>
+            <div class="course-price">9,000円（税込）</div>
+            <a href="https://karadacare.base.ec/items/148661905" class="btn-order" target="_blank">BASEで申し込む</a>
+        </div>
 
-  <h2>このサイトについて</h2>
+        <div class="course-card">
+            <div class="course-title">120分コース</div>
+            <div class="course-price">12,000円（税込）</div>
+            <a href="https://karadacare.base.ec/items/148661975" class="btn-order" target="_blank">BASEで申し込む</a>
+        </div>
 
-  <p>
+        <div class="section-title">ご利用の流れ</div>
+        <ul class="flow-list">
+            <li>① コースを選択</li>
+            <li>② BASEで決済</li>
+            <li>③ 受付内容を確認</li>
+            <li>④ 条件に合う施術者とのマッチングを進行</li>
+            <li>⑤ 日時・地域などを確認して連絡</li>
+        </ul>
 
-    ほぐし施術マッチングは、全国の鍼灸院、整体院、マッサージ師、
+        <div class="info-box">
+            <h3>施術者向け案内</h3>
+            <p style="margin:0;">掲載希望、AI受付導入、ホームページ作成支援などをご希望の方もお問い合わせください。</p>
+        </div>
 
-    リラクゼーション、介護施設などを応援するための
-
-    <strong>広告掲載・AI集客支援サービス</strong>です。
-
-  </p>
-
-  <p>
-
-    利用者様が地域から施術者や事業者を探しやすくし、
-
-    施術者・事業者の皆さまの集客、受付、問い合わせ対応をサポートします。
-
-  </p>
-
-</section>
-
-<section>
-
-  <h2>施術者・事業者向けサービス</h2>
-
-  <div class="grid">
-
-    <div class="card">✅ 全国サイト掲載</div>
-
-    <div class="card">✅ AI自動受付</div>
-
-    <div class="card">✅ AIチャット対応</div>
-
-    <div class="card">✅ メール通知</div>
-
-    <div class="card">✅ 地域検索表示</div>
-
-    <div class="card">✅ Googleマップ対策</div>
-
-    <div class="card">✅ ホームページ作成支援</div>
-
-    <div class="card">✅ 優先表示サービス</div>
-
-  </div>
-
-</section>
-
-<section>
-
-  <h2>会員プラン</h2>
-
-  <div class="grid">
-
-    <div class="card">
-
-      <h3>🌿 ライト会員</h3>
-
-      <p>まずは掲載を始めたい方向け。</p>
-
-      <p>初期費用</p>
-
-      <p class="price">4,980円</p>
-
-      <p>月額</p>
-
-      <p class="price">2,980円</p>
-
-      <a class="btn" href="https://karadacare.base.ec" target="_blank">申し込みへ進む</a>
+        <div class="caution-box">
+            <p style="margin:0;">本サービスは、施術希望者と施術者をつなぐマッチングサービスです。地域・日時・施術者の状況により、ご希望に添えない場合があります。決済はBASEの安全な決済画面で行われます。</p>
+        </div>
 
     </div>
 
-    <div class="card">
-
-      <h3>🌿 スタンダード会員</h3>
-
-      <p>集客支援とAI受付を本格的に使いたい方向け。</p>
-
-      <p>初期費用</p>
-
-      <p class="price">9,800円</p>
-
-      <p>月額</p>
-
-      <p class="price">4,980円</p>
-
-      <a class="btn" href="https://karadacare.base.ec" target="_blank">申し込みへ進む</a>
-
-    </div>
-
-    <div class="card">
-
-      <h3>🌿 プレミアム会員</h3>
-
-      <p>優先表示・AI集客支援を強化したい方向け。</p>
-
-      <p>初期費用</p>
-
-      <p class="price">19,800円</p>
-
-      <p>月額</p>
-
-      <p class="price">9,800円</p>
-
-      <a class="btn" href="https://karadacare.base.ec" target="_blank">申し込みへ進む</a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section>
-
-  <h2>利用者様へ</h2>
-
-  <p>
-
-    お住まいの地域に近い施術者・事業者を探すための情報提供サイトです。
-
-    施術内容、料金、対応地域、予約方法などは各施術者・事業者に直接ご確認ください。
-
-  </p>
-
-</section>
-
-<section>
-
-  <h2>運営方針</h2>
-
-  <div class="notice">
-
-    <p>
-
-      当サイトは、紹介手数料や成約手数料を受け取る仕組みではありません。
-
-    </p>
-
-    <p>
-
-      広告掲載、AI集客支援、システム利用サービスを通じて、
-
-      施術者や事業者の発展を応援することを目的としています。
-
-    </p>
-
-  </div>
-
-</section>
-
-<section>
-
-  <h2>お問い合わせ</h2>
-
-  <p>
-
-    掲載希望、AI受付導入、ホームページ作成支援については、
-
-    下記よりお問い合わせください。
-
-  </p>
-
-  <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfljDssir8xgp6R6-CUVYFymDJi45C26Gstmc5euovE4ZMbFQ/viewform" target="_blank"
-    >
-申し込みへ進む
-</a>
-
-</section>
-
-<footer>
-
-  <p>© ほぐし施術マッチング｜全国版AI集客支援プラットフォーム</p>
-
-</footer>
+    <footer>
+        &copy; ほぐし施術マッチング All Rights Reserved.
+    </footer>
 
 </body>
-
 </html>
+
+
+    
 
 
 
